@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <menu class="w-fit h-screen overflow-auto fixed bottom-0 right-0 px-6 py-3 sm:px-8 sm:py-4 md:px-9 xl:px-12 2xl:py-5 flex flex-col gap-5 bg-white dark:bg-zinc-950">
+    <menu class="w-fit h-screen overflow-auto fixed top-14 sm:top-16 right-0 px-3 py-3 sm:px-4 sm:py-4 md:px-5 xl:px-6 2xl:py-5 flex flex-col gap-5 border-l border-zinc-300 bg-white dark:bg-zinc-950 dark:border-zinc-900">
         <div class="col flex flex-col gap-5">
             <InputSelect label="Font family" id="family" form="editText" />
             <InputRange label="Font size" id="size" form="editText" />
@@ -58,3 +58,13 @@
         </div>
     </menu>
 </template>
+
+<style scoped>
+    menu {
+        scrollbar-width: 8px !important;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px !important;
+    }
+</style>

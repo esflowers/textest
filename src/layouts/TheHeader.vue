@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <header class="w-full h-fit fixed top-0 left-0 px-6 py-3 sm:px-8 sm:py-4 md:px-9 xl:px-12 2xl:py-5 flex items-center justify-between bg-white dark:bg-zinc-950">
+    <header class="w-full h-14 sm:h-16 fixed top-0 left-0 px-6 sm:px-8 md:px-9 xl:px-12 flex items-center justify-between border-b border-zinc-300 bg-white dark:bg-zinc-950 dark:border-zinc-900">
         <a href="/index.html" class="text-black dark:text-white">
             <IconTextest :size="22" />
         </a>
