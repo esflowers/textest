@@ -2,7 +2,6 @@
     import IconTextest from '@/components/icons/IconTextest.vue';
     import IconCode from '@/components/icons/IconCode.vue';
     import IconMaximize from '@/components/icons/IconMaximize.vue';
-    import BtnTheme from '@/components/buttons/BtnTheme.vue';
     import BtnPrimary from '@/components/buttons/BtnPrimary.vue';
     import BtnIcon from '@/components/buttons/BtnIcon.vue';
 </script>
@@ -14,7 +13,6 @@
         </a>
         <div class="flex items-center justify-between gap-3">
             <div class="flex items-center justify-center gap-1.5">
-                <BtnTheme />
                 <span class="hidden lg:flex">
                     <BtnIcon title="Fullscreen" >
                         <IconMaximize :size="22" />
