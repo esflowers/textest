@@ -11,6 +11,14 @@
     scrollbar-width: none;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 0;
+}
+
+::selection {
+    @apply text-zinc-900 bg-zinc-300/60;
+}
+
+.responsive-x {
+    @apply px-6 sm:px-9 xl:px-12 2xl:px-16;
 }
