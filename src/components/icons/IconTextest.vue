@@ -1,12 +1,10 @@
 <script setup lang="ts">
-    import { defineProps } from 'vue';
+import { defineProps } from 'vue';
+import type { IconProps } from '../../types';
 
-    defineProps({
-        size: {
-            type: Number,
-            default: 16
-        }
-    });
+const props = withDefaults(defineProps<IconProps>(), {
+    size: 21
+})
 </script>
 
 <template>
