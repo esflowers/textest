@@ -1,14 +1,14 @@
 <script setup lang="ts">
 interface Props {
-    isLink: boolean,
-    text: string,
-    link: string,
-    type: 'button' | 'submit' | 'reset',
-    variant: 'text' | 'icon' | 'menu',
-    isReverse: boolean
-    target: 'blank' | 'self' | 'parent' | 'top',
-    title: string,
-    disabled: boolean
+    isLink?: boolean,
+    text?: string,
+    link?: string,
+    type?: 'button' | 'submit' | 'reset',
+    variant?: 'text' | 'icon' | 'menu',
+    isReverse?: boolean
+    target?: 'blank' | 'self' | 'parent' | 'top',
+    title?: string,
+    disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -29,10 +29,10 @@ const colorClasses = 'border border-zinc-600 text-zinc-900 bg-transparent transi
 const variantClass: Record<'text' | 'icon' | 'menu', string> = {
     text: `px-2.5 py-[3px] text-sm tracking-tight ${colorClasses}`,
     icon: `p-1 ${colorClasses}`,
-    menu: ''
+    menu: 'p-1.5 transition duration-150 text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300/60'
 }
 
-const classes = `flex ${reverse} items-center justify-center gap-1 ${variantClass[props.variant]} rounded-full`
+const classes = `flex ${reverse} items-center justify-center gap-1 ${variantClass[props.variant]} rounded-full select-none`
 </script>
 
 <template>
@@ -42,7 +42,7 @@ const classes = `flex ${reverse} items-center justify-center gap-1 ${variantClas
         {{ text }}
     </button>
 
-    <a v-else :href="link" :target="target" :title="title" :class="classes">
+    <a v-else :href="link" :target="`_${target}`" :title="title" :class="classes">
         <slot />
         {{ text }}
     </a>
