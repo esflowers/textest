@@ -10,6 +10,7 @@ import { repository, site } from '../utils';
     <header class="w-full h-14 fixed top-0 left-0 responsive-x flex items-center justify-between backdrop-blur-md bg-white/90">
         <a :href="site"><IconTextest /></a>
         <div class="hidden md:flex items-center justify-between gap-3">
+            <span class="mr-3 text-sm tracking-tight">Geist Mono</span>
             <ButtonSizeScreen />
             <Button :isLink="true" :link="repository" target="blank" variant="icon" title="GitHub" >
                 <IconGitHub :size="18" />
