@@ -3,7 +3,7 @@ import { defineProps } from 'vue';
 import type { IconProps } from '../../types';
 
 const props = withDefaults(defineProps<IconProps>(), {
-    size: 21
+    size: 18
 })
 </script>
 
