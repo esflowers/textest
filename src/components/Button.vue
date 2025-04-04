@@ -8,7 +8,8 @@ interface Props {
     isReverse?: boolean
     target?: 'blank' | 'self' | 'parent' | 'top',
     title?: string,
-    disabled?: boolean
+    disabled?: boolean,
+    className?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -20,19 +21,26 @@ const props = withDefaults(defineProps<Props>(), {
     isReverse: false,
     target: 'self',
     title: '',
-    disabled: false
+    disabled: false,
+    className: ''
 })
 
 const emit = defineEmits(['click']);
 const reverse = props.isReverse ? 'flex-row-reverse' : 'flex-row'
 const colorClasses = 'border border-zinc-600 text-zinc-900 bg-transparent transition duration-150 hover:text-zinc-950 hover:border-zinc-950'
-const variantClass: Record<'text' | 'icon' | 'menu', string> = {
-    text: `px-2.5 py-[3px] text-sm tracking-tight ${colorClasses}`,
-    icon: `p-1 ${colorClasses}`,
-    menu: 'p-1.5 transition duration-150 text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300/60'
+const variantPadding: Record<'text' | 'icon' | 'menu', string> = {
+    text: `px-2.5 py-[3px]`,
+    icon: `p-1`,
+    menu: 'p-1.5'
 }
+const variantClass: Record<'text' | 'icon' | 'menu', string> = {
+    text: `text-sm tracking-tight ${colorClasses}`,
+    icon: `${colorClasses}`,
+    menu: 'transition duration-150 text-zinc-900 border border-transparent hover:text-zinc-950 hover:border-zinc-950 focus:bg-zinc-300'
+}
+const isDisabled = props.disabled ? 'opacity-60 cursor-not-allowed hover:bg-transparent hover:border-transparent' : `${variantClass[props.variant]}`
 
-const classes = `flex ${reverse} items-center justify-center gap-1 ${variantClass[props.variant]} rounded-full select-none`
+const classes = `flex ${reverse} items-center justify-center gap-1 ${isDisabled} ${variantPadding[props.variant]} rounded-full select-none ${props.className}`
 </script>
 
 <template>
