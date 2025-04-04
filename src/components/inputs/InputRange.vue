@@ -1,53 +1,33 @@
 <script setup lang="ts">
-    import { defineProps } from 'vue';
+interface Props {
+    id: string,
+    unit?: string,
+    min?: number,
+    max?: number,
+    step?: number,
+    disabled?: boolean,
+    modelValue: number
+}
 
-    defineProps({
-        label: {
-            type: String,
-            required: true
-        },
-        id: {
-            type: String,
-            required: true
-        },
-        unit: {
-            type: String,
-            default: 'px'
-        },
-        min: {
-            type: Number,
-            default: 0
-        },
-        max: {
-            type: Number,
-            default: 100
-        },
-        step: {
-            type: Number,
-            default: 1
-        },
-        form: {
-            type: String,
-            required: true
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        }
-    })
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: number): void
+}>()
+
+const props = withDefaults(defineProps<Props>(), {
+    unit: 'px',
+    min: 0,
+    max: 100,
+    step: 1,
+    disabled: false
+})
 </script>
 
 <template>
-    <div class="flex flex-col gap-1">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-            <label :for="id" :form="form" class="select-none text-base">
-                {{ label }}
-            </label>
-            <p><small class="text-xs font-medium">500 {{ unit }}</small></p>
-        </div>
-        <input type="range" class="h-1.5 accent-zinc-900 dark:accent-zinc-50 appearance-none rounded-md bg-zinc-300 dark:bg-zinc-900 focus:outline-none" 
-                :id="id" :name="id" 
-                :min="min" :max="max" :step="step"
-                :form="form" :disabled="disabled">
+    <div class="flex items-center gap-3 text-nowrap">
+        <input type="range" class="h-[3px] accent-zinc-950 appearance-none rounded-md bg-zinc-600 focus:outline-none" 
+                :id="id" :name="id"
+                :value="modelValue" @input="emit('update:modelValue', +(($event.target as HTMLInputElement).value))"
+                :min="min" :max="max" :step="step" :disabled="disabled">
+        <span><small class="font-semibold tracking-tight text-xs">{{ modelValue }} {{ unit }}</small></span>
     </div>
 </template>
