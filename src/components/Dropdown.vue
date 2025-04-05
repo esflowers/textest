@@ -6,11 +6,15 @@ const dropdownRef = ref<HTMLElement | null>(null)
 const toggle = () => (isOpen.value = !isOpen.value)
 
 interface Props {
-    position?: string
+    position?: string,
+    rounded?: string,
+    className?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    position: '-top-16 left-1/2 -translate-x-1/2'
+    position: '-top-16 left-1/2 -translate-x-1/2',
+    rounded: 'rounded-full',
+    className: ''
 })
 
 const handleClickOutside = (e: MouseEvent) => {
@@ -32,7 +36,7 @@ onUnmounted(() => {
     <div ref="dropdownRef" class="relative">
         <transition name="fade">
             <div v-if="isOpen"
-                :class="`absolute z-50 ${position} w-fit h-fit rounded-full px-2.5 py-1.5 flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-600`">
+                :class="`absolute z-50 ${position} w-fit h-fit ${className} ${rounded} px-2.5 py-1.5 flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-600`">
                 <slot />
             </div>
         </transition>
