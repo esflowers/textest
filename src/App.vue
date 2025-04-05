@@ -1,13 +1,38 @@
-<script setup>
-import TheHeader from '@/layouts/TheHeader.vue';
-import TheMenu from '@/layouts/TheMenu.vue';
+<script setup lang="ts">
+import { ref, onMounted, provide } from 'vue';
+import type { TextAlign } from './types';
+import { appName } from './utils';
+import TheHeader from './layouts/TheHeader.vue';
+import TheMenu from './layouts/TheMenu.vue';
+
+const font = ref('Figtree');
+const fontSize = ref(30);
+const textAlign = ref<TextAlign>('center');
+provide('fontSize', fontSize);
+provide('textAlign', textAlign);
+
+const loadFont = (fontName: string) => {
+  const formattedFont = fontName.replace(/\s+/g, '+')
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = `https://fonts.googleapis.com/css2?family=${formattedFont}:wght@400&display=swap`
+  document.head.appendChild(link)
+  font.value = fontName
+}
+
+onMounted(() => {
+  loadFont(font.value);
+})
 </script>
 
 <template>
-  <TheHeader />
+  <TheHeader :font='font' />
   <main class="w-full min-h-dvh py-16 responsive-x flex items-center justify-center">
-    <h1 spellcheck="false" contenteditable="true" class="w-full outline-none text-xl text-center list-disc">
-      textest
+    <h1 id="textest" spellcheck="false" contenteditable="true" 
+        class="w-full outline-none list-disc"
+        :class="{'text-left': textAlign === 'left', 'text-center': textAlign === 'center', 'text-right': textAlign === 'right', 'text-justify': textAlign === 'justify'}"
+        :style="{ fontFamily: font, fontSize: fontSize + 'px' }">
+      {{ appName }}
     </h1>
   </main>
   <TheMenu />
