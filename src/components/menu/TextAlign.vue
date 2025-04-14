@@ -29,8 +29,8 @@ const iconMap = {
         <Button variant="menu" title="Right" @click="setAlign('right')"><IconAlignRight /></Button>
         <Button variant="menu" title="Justify" @click="setAlign('justify')"><IconAlignJustify /></Button>
 
-        <template #trigger>
-            <Button variant="menu" title="Text Align">
+        <template #trigger="{ isOpen }">
+            <Button variant="menu" title="Text Align" :class="isOpen ? 'text-blue-700' : ''">
                 <component :is="iconMap[textAlign || 'center']" />
             </Button>
         </template>
