@@ -5,7 +5,7 @@ interface Props {
     link?: string,
     type?: 'button' | 'submit' | 'reset',
     variant?: 'text' | 'icon' | 'menu',
-    isReverse?: boolean
+    isReverse?: boolean,
     target?: 'blank' | 'self' | 'parent' | 'top',
     title?: string,
     disabled?: boolean,
@@ -34,13 +34,13 @@ const variantPadding: Record<'text' | 'icon' | 'menu', string> = {
     menu: 'p-1.5'
 }
 const variantClass: Record<'text' | 'icon' | 'menu', string> = {
-    text: `text-sm tracking-tight ${colorClasses}`,
+    text: `text-sm text-nowrap select-none tracking-tight ${colorClasses}`,
     icon: `${colorClasses}`,
-    menu: 'transition duration-150 text-zinc-900 border border-transparent hover:text-zinc-950 hover:border-zinc-950 focus:bg-zinc-300'
+    menu: 'transition duration-150 border border-transparent hover:bg-zinc-200'
 }
-const isDisabled = props.disabled ? 'opacity-60 cursor-not-allowed hover:bg-transparent hover:border-transparent' : `${variantClass[props.variant]}`
+const isDisabled = props.disabled ? 'opacity-45 cursor-not-allowed hover:bg-transparent hover:border-transparent' : `${variantClass[props.variant]}`
 
-const classes = `flex ${reverse} items-center justify-center gap-1 ${isDisabled} ${variantPadding[props.variant]} rounded-full text-nowrap select-none ${props.className} group`
+const classes = `flex ${reverse} items-center justify-center gap-1 ${isDisabled} ${variantPadding[props.variant]} rounded-full ${props.className} group`
 </script>
 
 <template>
