@@ -8,12 +8,14 @@ const toggle = () => (isOpen.value = !isOpen.value)
 interface Props {
     top?: string,
     rounded?: string,
+    padding?: string,
     className?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
     top: '-top-16',
     rounded: 'rounded-full',
+    padding: 'px-2.5 py-1.5',
     className: ''
 })
 
@@ -36,7 +38,7 @@ onUnmounted(() => {
     <div ref="dropdownRef" class="relative">
         <transition name="fade">
             <div v-if="isOpen"
-                :class="`absolute z-50 ${top} left-1/2 -translate-x-1/2 w-fit h-fit ${className} ${rounded} px-2.5 py-1.5 flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-600`">
+                :class="`absolute z-50 ${top} left-1/2 -translate-x-1/2 w-fit h-fit ${className} ${rounded} ${padding} flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-600`">
                 <slot />
             </div>
         </transition>
