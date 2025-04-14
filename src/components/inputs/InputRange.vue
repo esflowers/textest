@@ -23,11 +23,11 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <div class="flex items-center gap-3 text-nowrap">
+    <div class="py-0.5 flex items-center gap-3 text-nowrap">
         <input type="range" class="h-[3px] accent-zinc-950 appearance-none rounded-md bg-zinc-600 focus:outline-none" 
                 :id="id" :name="id"
                 :value="modelValue" @input="emit('update:modelValue', +(($event.target as HTMLInputElement).value))"
                 :min="min" :max="max" :step="step" :disabled="disabled">
-        <span><small class="font-semibold tracking-tight text-xs">{{ modelValue }} {{ unit }}</small></span>
+        <small class="font-semibold tracking-tight text-xs">{{ modelValue }}{{ unit }}</small>
     </div>
 </template>
