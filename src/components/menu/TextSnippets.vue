@@ -7,13 +7,16 @@ import IconBlockquote from '../icons/IconBlockquote.vue';
 </script>
 
 <template>
-    <Dropdown class-name="gap-2">
+    <Dropdown top="-top-14">
         <div v-for="snippet in snippets" :key="snippet.name">
-            <InputSelect :id="`${snippet.id}`" :default="`${snippet.name}`" :options="snippet.options" />
+            <InputSelect :id="`${snippet.id}`" :default="`${snippet.name}`" 
+                        :options="snippet.options" />
         </div>
 
-        <template #trigger>
-            <Button variant="menu" title="Text Snippets"><IconBlockquote /></Button>
+        <template #trigger="{ isOpen }">
+            <Button variant="menu" title="Text Snippets" :class="isOpen ? 'text-blue-700' : ''">
+                <IconBlockquote />
+            </Button>
         </template>
     </Dropdown>
 </template>

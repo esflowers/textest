@@ -5,7 +5,7 @@ import { appName } from './utils';
 import TheHeader from './layouts/TheHeader.vue';
 import TheMenu from './layouts/TheMenu.vue';
 
-const font = ref('Figtree');
+const font = ref('Lora');
 const fontSize = ref(30);
 const textAlign = ref<TextAlign>('center');
 provide('fontSize', fontSize);

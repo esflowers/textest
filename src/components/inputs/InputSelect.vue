@@ -12,16 +12,18 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     default: 'Select'
 })
+
+const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <Dropdown position="-top-36 left-1/2 -translate-x-1/2" class-name="flex-col" rounded="rounded-lg">
-        <p v-for="option in options" class="block w-[30ch] rounded-md font-medium tracking-tighter text-sm truncate cursor-pointer px-1 py-0.5 transition duration-150 hover:bg-zinc-300">{{ option }}</p>
+    <Dropdown top="-top-36" padding="px-1.5 py-2" class-name="flex-col" rounded="rounded-lg">
+        <p v-for="option in options" @click="emit('click', option)" class="block w-[30ch] rounded-md font-medium tracking-tighter text-sm truncate cursor-pointer px-1.5 py-[3px] transition duration-150 hover:bg-zinc-200">{{ option }}</p>
 
-        <template #trigger>
-            <Button>
+        <template #trigger="{ isOpen }">
+            <Button variant="text-menu" :class="isOpen ? 'text-blue-700' : ''">
                 {{ default }}
-                <IconChevronUp />
+                <IconChevronUp :class="`transition ${isOpen ? 'rotate-180' : ''}`" :size="16" />
             </Button>
         </template>
     </Dropdown>
