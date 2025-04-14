@@ -8,11 +8,11 @@ const fontSize = inject<Ref<number>>('fontSize')!;
 </script>
 
 <template>
-    <Dropdown position="-top-14 left-1/2 -translate-x-1/2">
-        <InputRange id="fontSize" v-model="fontSize" :min="12" :max="128" />
+    <Dropdown top="-top-12">
+        <InputRange id="fontSize" v-model="fontSize" :min="12" :max="300" />
 
-        <template #trigger>
-            <Button variant="menu" title="Font Size">
+        <template #trigger="{ isOpen }">
+            <Button variant="menu" title="Font Size" :class="isOpen ? 'text-blue-700' : ''">
                 <IconFontSize />
             </Button>
         </template>
