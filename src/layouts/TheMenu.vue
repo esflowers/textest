@@ -10,7 +10,7 @@ import IconClearFormatting from '../components/icons/IconClearFormatting.vue';
 </script>
 
 <template>
-    <menu class="w-fit h-fit fixed bottom-3 left-1/2 -translate-x-1/2 rounded-full px-2.5 py-1.5 flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-600">
+    <menu class="w-fit h-fit fixed bottom-3.5 left-1/2 -translate-x-1/2 rounded-full px-2.5 py-1.5 flex gap-1 backdrop-blur-md bg-white/90 border border-zinc-800">
         <FontSize />
         <Button variant="menu" title="Font Weight" :disabled="true"><IconBold /></Button>
         <TextSnippets />
