@@ -4,7 +4,7 @@ interface Props {
     text?: string,
     link?: string,
     type?: 'button' | 'submit' | 'reset',
-    variant?: 'text' | 'icon' | 'menu',
+    variant?: 'text' | 'icon' | 'menu' | 'text-menu',
     isReverse?: boolean,
     target?: 'blank' | 'self' | 'parent' | 'top',
     title?: string,
@@ -28,15 +28,17 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits(['click']);
 const reverse = props.isReverse ? 'flex-row-reverse' : 'flex-row'
 const colorClasses = 'border border-zinc-600 text-zinc-900 bg-transparent transition duration-150 hover:text-zinc-950 hover:border-zinc-950'
-const variantPadding: Record<'text' | 'icon' | 'menu', string> = {
-    text: `px-2.5 py-[3px]`,
-    icon: `p-1`,
-    menu: 'p-1.5'
+const variantPadding: Record<'text' | 'icon' | 'menu' | 'text-menu', string> = {
+    text: 'px-2.5 py-[3px]',
+    icon: 'p-1',
+    menu: 'p-1.5',
+    'text-menu': 'px-2.5 py-[3px]',
 }
-const variantClass: Record<'text' | 'icon' | 'menu', string> = {
+const variantClass: Record<'text' | 'icon' | 'menu' | 'text-menu', string> = {
     text: `text-sm text-nowrap select-none tracking-tight ${colorClasses}`,
     icon: `${colorClasses}`,
-    menu: 'transition duration-150 border border-transparent hover:bg-zinc-200'
+    menu: 'transition duration-150 hover:bg-zinc-200',
+    'text-menu': 'text-sm text-nowrap select-none tracking-tight transition duration-150 hover:bg-zinc-200'
 }
 const isDisabled = props.disabled ? 'opacity-45 cursor-not-allowed hover:bg-transparent hover:border-transparent' : `${variantClass[props.variant]}`
 
