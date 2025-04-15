@@ -7,7 +7,7 @@ import IconBlockquote from '../icons/IconBlockquote.vue';
 </script>
 
 <template>
-    <Dropdown top="-top-14">
+    <Dropdown top="-top-[58px]">
         <div v-for="snippet in snippets" :key="snippet.name">
             <InputSelect :id="`${snippet.id}`" :default="`${snippet.name}`" 
                         :options="snippet.options" />
