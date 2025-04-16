@@ -18,7 +18,7 @@ const emit = defineEmits(['click']);
 
 <template>
     <Dropdown top="-top-[150px]" padding="px-1.5 py-2" class-name="flex-col" rounded="rounded-lg">
-        <p v-for="option in options" @click="emit('click', option)" class="block w-[30ch] rounded-md font-medium tracking-tighter text-sm truncate cursor-pointer px-1.5 py-[3px] transition duration-150 hover:bg-zinc-200">{{ option }}</p>
+        <div v-for="option in options" @click="emit('click', option)" class="block w-[30ch] rounded-md font-medium tracking-tighter text-sm truncate cursor-pointer px-1.5 py-[3px] transition duration-150 hover:bg-zinc-200">{{ option }}</div>
 
         <template #trigger="{ isOpen }">
             <Button variant="text-menu" :class="isOpen ? 'text-blue-700' : ''">
