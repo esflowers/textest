@@ -42,7 +42,7 @@ const variantClass: Record<'text' | 'icon' | 'menu' | 'text-menu', string> = {
 }
 const isDisabled = props.disabled ? 'opacity-45 cursor-not-allowed hover:bg-transparent hover:border-transparent' : `${variantClass[props.variant]}`
 
-const classes = `flex ${reverse} items-center justify-center gap-1 ${isDisabled} ${variantPadding[props.variant]} rounded-full ${props.className} group`
+const classes = `w-fit h-fit flex ${reverse} items-center justify-center gap-1 ${isDisabled} ${variantPadding[props.variant]} rounded-full ${props.className} group`
 </script>
 
 <template>
