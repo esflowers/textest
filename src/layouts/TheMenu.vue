@@ -2,11 +2,14 @@
 import Button from '../components/Button.vue';
 import FontSize from '../components/menu/FontSize.vue';
 import TextSnippets from '../components/menu/TextSnippets.vue';
+import FontFamily from '../components/menu/FontFamily.vue';
 import TextAlign from '../components/menu/TextAlign.vue';
 import IconItalic from '../components/icons/IconItalic.vue';
 import IconBold from '../components/icons/IconBold.vue';
-import IconTypography from '../components/icons/IconTypography.vue';
 import IconClearFormatting from '../components/icons/IconClearFormatting.vue';
+
+const props = defineProps<{ font: string }>()
+const emit = defineEmits(['update:font'])
 </script>
 
 <template>
@@ -14,7 +17,7 @@ import IconClearFormatting from '../components/icons/IconClearFormatting.vue';
         <FontSize />
         <Button variant="menu" title="Font Weight" :disabled="true"><IconBold /></Button>
         <TextSnippets />
-        <Button variant="menu" title="Font" :disabled="true"><IconTypography /></Button>
+        <FontFamily :modelValue="font" @update:modelValue="val => emit('update:font', val)" />
         <Button variant="menu" title="Font Style" :disabled="true"><IconItalic /></Button>
         <TextAlign />
         <Button variant="menu" title="Clear Formatting" :disabled="true"><IconClearFormatting /></Button>
