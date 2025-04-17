@@ -20,7 +20,7 @@ const toggleFullScreen = () => {
 </script>
 
 <template>
-    <Button variant="icon" title="Full screen" @click="toggleFullScreen">
+    <Button variant="icon" title="Full Screen" @click="toggleFullScreen">
         <component :is="isFull ? IconMinimize : IconMaximize" :size="18" />
     </Button>
 </template>
