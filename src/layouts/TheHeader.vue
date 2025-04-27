@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
     <header class="w-full h-14 fixed top-0 left-0 responsive-x flex items-center justify-between backdrop-blur-md bg-white/90">
         <a :href="site"><IconTextest /></a>
-        <span class="ml-auto lg:mr-6 text-sm text-end capitalize tracking-tight select-all">{{ font }}</span>
+        <span title="Current Font" class="ml-auto lg:mr-6 text-sm text-end text-blue-700 capitalize tracking-tighter select-all">{{ font }}</span>
         <div class="hidden lg:flex items-center justify-between gap-3">
             <ButtonSizeScreen />
             <Button :isLink="true" :link="repository" target="blank" variant="icon" title="GitHub" >
