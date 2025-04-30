@@ -5,6 +5,7 @@ import { appName } from './utils';
 import TheHeader from './layouts/TheHeader.vue';
 import TheMenu from './layouts/TheMenu.vue';
 import Toast from './components/Toast.vue';
+import ButtonBuyMeACoffee from './components/ui/ButtonBuyMeACoffee.vue';
 
 const font = ref('Geist Mono');
 const fontSize = ref(30);
@@ -51,6 +52,7 @@ watch(font, (newFont) => {
     </h1>
   </main>
   <TheMenu v-model:font="font" />
+  <ButtonBuyMeACoffee />
   <Toast>
     <p>This project is still in content development.</p>
   </Toast>
