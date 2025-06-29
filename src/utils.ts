@@ -3,7 +3,7 @@ export const author = 'esflowers'
 export const site = 'https://textest.esflowers.icu'
 export const repository = 'https://github.com/esflowers/textest'
 export const googleFonts = 'https://fonts.google.com/'
-export const buyMeACoffee = 'https://buymeacoffee.com/es.flowers'
+export const buyMeACoffee = 'https://coff.ee/esflowers_'
 export const snippets = [
     {
         name: 'Pangrams',
