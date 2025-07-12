@@ -2,6 +2,7 @@
 import { ref, onMounted, provide, watch } from 'vue';
 import type { TextAlign } from './types';
 import { appName } from './utils';
+import Analytics from '@vercel/analytics/vue'
 import TheHeader from './layouts/TheHeader.vue';
 import TheMenu from './layouts/TheMenu.vue';
 import Toast from './components/Toast.vue';
@@ -42,6 +43,7 @@ watch(font, (newFont) => {
 </script>
 
 <template>
+  <Analytics />
   <TheHeader :font='font' />
   <main class="w-full min-h-dvh py-16 responsive-x flex items-center justify-center">
     <h1 id="textest" spellcheck="false" contenteditable="true" 
