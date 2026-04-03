@@ -1,7 +1,7 @@
 export const appName = 'textest'
-export const author = 'esflowers'
+export const author = 'aaef'
 export const site = 'https://textest.esflowers.icu'
-export const repository = 'https://github.com/esflowers/textest'
+export const repository = 'https://github.com/aa-ef/textest'
 export const googleFonts = 'https://fonts.google.com/'
 export const buyMeACoffee = 'https://coff.ee/esflowers_'
 export const snippets = [
